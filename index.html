@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie Chart Comparison</title>
+    <style>
+        #chart-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin: 0 auto;
+        }
+        #chart1, #chart2 {
+            width: 45%;
+            height: 500px;
+        }
+        #controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        select {
+            margin: 0 10px;
+            font-size: 16px;
+        }
+        button {
+            margin-left: 10px;
+            padding: 5px 15px;
+            font-size: 16px;
+        }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(() => drawCharts('2010', '2010'));
+
+        const pieChartData = {
+            '2010': [
+                ['Category', 'Value'],
+                ['Category 1', 435],
+                ['Category 2', 345],
+                ['Category 3', 3223],
+            ],
+            '2011': [
+                ['Category', 'Value'],
+                ['Category 4', 865],
+                ['Category 5', 423],
+                ['Category 6', 324],
+                ['Category 7', 3425],
+            ],
+            '2012': [
+                ['Category', 'Value'],
+                ['Category 8', 324],
+                ['Category 9', 654],
+                ['Category 10', 132],
+            ],
+            '2013': [
+                ['Category', 'Value'],
+                ['Category 11', 855],
+                ['Category 12', 853],
+                ['Category 13', 353],
+                ['Category 14', 653],
+                ['Category 15', 754],
+                ['Category 16', 343],
+            ],
+            '2014': [
+                ['Category', 'Value'],
+                ['Category 17', 345],
+                ['Category 18', 453],
+                ['Category 19', 656],
+                ['Category 20', 432],
+                ['Category 21', 634],
+                ['Category 22', 232],
+            ],
+            '2015': [
+                ['Category', 'Value'],
+                ['Category 23', 831],
+                ['Category 24', 735],
+            ],
+            '2016': [
+                ['Category', 'Value'],
+                ['Category 25', 324],
+                ['Category 26', 757],
+                ['Category 27', 323],
+                ['Category 28', 767],
+                ['Category 29', 142],
+                ['Category 30', 323],
+                ['Category 31', 643],
+                ['Category 32', 1234],
+                ['Category 33', 332],
+                ['Category 34', 324],
+                ['Category 35', 234],
+                ['Category 36', 346],
+            ],
+            '2017': [
+                ['Category', 'Value'],
+                ['Category 37', 7654],
+                ['Category 38', 976],
+                ['Category 39', 567],
+                ['Category 40', 6786],
+                ['Category 41', 675],
+            ],
+            '2018': [
+                ['Category', 'Value'],
+                ['Category 42', 654],
+                ['Category 43', 347],
+                ['Category 44', 5675],
+                ['Category 45', 657],
+                ['Category 46', 685],
+            ],
+            '2019': [
+                ['Category', 'Value'],
+                ['Category 47', 889],
+                ['Category 48', 789],
+            ],
+            '2020': [
+                ['Category', 'Value'],
+                ['Category 49', 1187.57],
+            ],
+            '2021': [
+                ['Category', 'Value'],
+              ['Category 50', 1163.39],
+                ['Category 51', 1139.21],
+            ],
+            '2022': [
+                ['Category', 'Value'],
+                ['Category 52', 1115.03],
+                ['Category 53', 1090.86],
+                ['Category 54', 1066.68],
+                ['Category 55', 1042.5],
+                ['Category 56', 1018.32],
+                ['Category 57', 994.14],
+                ['Category 58', 969.96],
+                ['Category 59', 945.78],
+                ['Category 60', 921.61],
+                ['Category 61', 897.43],
+                ['Category 62', 873.25],
+            ],
+            '2023': [
+                ['Category', 'Value'],
+                ['Category 63', 849.07],
+                ['Category 64', 824.89],
+                ['Category 65', 800.71],
+                ['Category 66', 776.54],
+                ['Category 67', 752.36],
+                ['Category 68', 728.18],
+                ['Category 69', 704],
+                ['Category 70', 679.82],
+                ['Category 71', 655.64],
+                ['Category 72', 631.46],
+                ['Category 73', 607.29],
+                ['Category 74', 583.11],
+                ['Category 75', 558.93],
+                ['Category 76', 534.75],
+                ['Category 77', 510.57],
+            ],
+            '2024': [
+                ['Category', 'Value'],
+                ['Category 78', 486.39],
+                ['Category 79', 462.21],
+                ['Category 80', 438.04],
+                ['Category 81', 413.86],
+                ['Category 82', 389.68],
+                ['Category 83', 365.5],
+                ['Category 84', 341.32],
+            ]
+        };
+
+        function drawCharts(year1, year2) {
+            var data1 = google.visualization.arrayToDataTable(pieChartData[year1]);
+            var data2 = google.visualization.arrayToDataTable(pieChartData[year2]);
+
+            var options1 = {
+                title: 'Pie Chart for Year ' + year1,
+                is3D: true,
+            };
+
+            var options2 = {
+                title: 'Pie Chart for Year ' + year2,
+                is3D: true,
+            };
+
+            var chart1 = new google.visualization.PieChart(document.getElementById('chart1'));
+            chart1.draw(data1, options1);
+
+            var chart2 = new google.visualization.PieChart(document.getElementById('chart2'));
+            chart2.draw(data2, options2);
+        }
+
+        function updateCharts() {
+            var year1 = document.getElementById('year-selector-1').value;
+            var year2 = document.getElementById('year-selector-2').value;
+            drawCharts(year1, year2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Pie Chart Comparison</h1>
+    <div id="controls">
+        <select id="year-selector-1">
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+        </select>
+
+        <select id="year-selector-2">
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+          <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024
+              </select>
+
+        
+    </div>
+
+    <div id="chart-container">
+        <div id="chart1"></div>
+        <div id="chart2"></div>
+    </div>
+</body>
+</html>
