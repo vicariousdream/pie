@@ -52,16 +52,27 @@
         <!-- Dropdown menu -->
         <div class="dropdown">
             <select id="yearSelect" onchange="changeReport()">
+                <!-- Years 2010 to 2024 -->
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
                 <option value="2021">2021</option>
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
-                <!-- Add more options for other years as needed -->
             </select>
         </div>
 
         <!-- Embedded report -->
-        <iframe id="reportFrame" src="https://lookerstudio.google.com/embed/reporting/your-default-report-url-here" allowfullscreen></iframe>
+        <iframe id="reportFrame" src="https://lookerstudio.google.com/embed/reporting/ec7fc61c-b0ab-482e-b312-52c4acdbdb08/page/PFpc" allowfullscreen></iframe>
     </div>
 
     <script>
@@ -70,24 +81,7 @@
             var iframe = document.getElementById("reportFrame");
 
             // Modify the src based on the selected year
-            switch (year) {
-                case "2021":
-                    iframe.src = "https://lookerstudio.google.com/embed/reporting/report-url-for-2021-here";
-                    break;
-                case "2022":
-                    iframe.src = "https://lookerstudio.google.com/embed/reporting/report-url-for-2022-here";
-                    break;
-                case "2023":
-                    iframe.src = "https://lookerstudio.google.com/embed/reporting/report-url-for-2023-here";
-                    break;
-                case "2024":
-                    iframe.src = "https://lookerstudio.google.com/embed/reporting/report-url-for-2024-here";
-                    break;
-                // Add more cases for additional years
-                default:
-                    iframe.src = "https://lookerstudio.google.com/embed/reporting/ec7fc61c-b0ab-482e-b312-52c4acdbdb08/page/2hT8D";
-                    break;
-            }
+            iframe.src = "https://lookerstudio.google.com/embed/reporting/ec7fc61c-b0ab-482e-b312-52c4acdbdb08/page/PFpc?year=" + year;
         }
     </script>
 
