@@ -119,7 +119,7 @@
             ],
             '2021': [
                 ['Category', 'Value'],
-                ['Category 50', 1163.39],
+['Category 50', 1163.39],
                 ['Category 51', 1139.21],
             ],
             '2022': [
@@ -181,9 +181,9 @@
             };
 
             var chart1 = new google.visualization.PieChart(document.getElementById('chart1'));
-            chart1.draw(data1, options1);
-
             var chart2 = new google.visualization.PieChart(document.getElementById('chart2'));
+
+            chart1.draw(data1, options1);
             chart2.draw(data2, options2);
         }
 
@@ -197,7 +197,7 @@
 <body>
     <h1>Pie Chart Comparison</h1>
     <div id="controls">
-        <select id="year-selector-1">
+        <select id="year-selector-1" onchange="updateCharts()">
             <option value="2010">2010</option>
             <option value="2011">2011</option>
             <option value="2012">2012</option>
@@ -215,12 +215,12 @@
             <option value="2024">2024</option>
         </select>
 
-        <select id="year-selector-2">
+        <select id="year-selector-2" onchange="updateCharts()">
             <option value="2010">2010</option>
             <option value="2011">2011</option>
             <option value="2012">2012</option>
             <option value="2013">2013</option>
-            <option value="2014">2014</option>
+          <option value="2014">2014</option>
             <option value="2015">2015</option>
             <option value="2016">2016</option>
             <option value="2017">2017</option>
@@ -230,7 +230,7 @@
             <option value="2021">2021</option>
             <option value="2022">2022</option>
             <option value="2023">2023</option>
-            <option value="2024">2024
+            <option value="2024">2024</option>
         </select>
     </div>
 
